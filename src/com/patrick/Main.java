@@ -792,15 +792,19 @@ public class Main {
         bonusSapin_display(tableau);
 //        bonusSapin_displayDown(tableau);
         bonusSapin_displayRight(tableau);
+
+        String a[][]= {{"1","2","3"},{"4","5","6"},{"7","8","9"}};
+        bonusSapin_displayRight(a);
+
     }
 
     public static void bonusSapin_display(String[][] tableau) {
 
         int rang = tableau.length;
-        for (int line = 0; line < rang; line++) {
-            for (int i = 0; i < rang; i++)
+        for (int i = 0; i < rang; i++) {
+            for (int j = 0; j < rang; j++)
             {
-                System.out.print(tableau[line][i]);
+                System.out.print(tableau[i][j]);
             }
             System.out.print("\n");
         }
@@ -810,10 +814,10 @@ public class Main {
     public static void bonusSapin_displayDown(String[][] tableau) {
 
         int rang = tableau.length;
-        for (int line = (rang-1); line >= 0; line--) {
-            for (int i = 0; i < rang; i++)
+        for (int i = (rang-1); i >= 0; i--) {
+            for (int j = 0; j < rang; j++)
             {
-                System.out.print(tableau[line][i]);
+                System.out.print(tableau[i][j]);
             }
             System.out.print("\n");
         }
@@ -823,16 +827,17 @@ public class Main {
     public static void bonusSapin_displayRight(String[][] tableau) {
 
         int rang = tableau.length;
-//        for (int line = 0; line < rang; line++) {
-        for (int line = (rang-1); line >= 0; line--) {
-//            for (int i = 0; i < rang; i++)
-            for (int i = (rang-1); i >= 0; i--)
+        String[][] result = new String[rang][rang];
+        for (int i = (rang-1); i >= 0; i--) {
+            for (int j = 0; j < rang; j++)
             {
-                System.out.print(tableau[i][line]);
+                result[i][j] = tableau[j][i];
+//                System.out.print(tableau[i][j]);
             }
-            System.out.print("\n");
+//            System.out.print("\n");
         }
-        System.out.print("\n");
+//        System.out.print("\n");
+        bonusSapin_display(result);
     }
 
     public static void testExpression() {
