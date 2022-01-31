@@ -12,15 +12,14 @@ public class Banque {
 
     public String nom = "Free Bank for You";
     private Client[] clients = new Client[1];
-    private static int dernierNumeroCompte = 0;
+    private static int dernierNumeroCompte = 1000;
 
     public void ajouterClient(String nom) {
 
         Client client = new Client(nom);
-        int numeroCompte = client.ajouterCompte();
         this.clients = Arrays.copyOf(this.clients, this.clients.length + 1);
         this.clients[this.clients.length-1] = client;
-        System.out.println("Bienvenue à " + client.getNom() + ", un nouveau compte a été créé avec le numéro " + numeroCompte);
+        System.out.println("Bienvenue à " + client.getNom() + ", un nouveau compte a été créé avec le numéro " + client.getComptePrincipal().numero);
     }
 
     public static Compte attribuerNouveauCompte() {
