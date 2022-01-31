@@ -76,11 +76,12 @@ public class MaBanqueInterractive {
         for (Compte compte : this.client.getComptes()) {
             System.out.println("    n° " + compte.numero + " : " + compte.getSolde() + " €");
         }
-        System.out.println("Quelle opération voulez-vous effectuer sur le client M. Dupont ?\n" +
-                "    1) Afficher un bilan\n" +
-                "    2) Faire un retrait\n" +
-                "    3) Faire un dépôt\n" +
-                "    4) Faire un virement");
+        System.out.println("""
+                Quelle opération voulez-vous effectuer sur le client M. Dupont ?
+                    1) Afficher un bilan
+                    2) Faire un retrait
+                    3) Faire un dépôt
+                    4) Faire un virement""");
 
         int choix;
         try {
@@ -134,6 +135,6 @@ public class MaBanqueInterractive {
     }
 
     private void interactionBilanGeneral() {
-        System.out.println("interactionBilanGeneral");
+        this.banque.afficherBilan();
     }
 }

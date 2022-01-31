@@ -48,6 +48,7 @@ public class Banque {
         System.out.println("Bilan de tous les clients");
         float solde = 0f;
         for (Client client : this.clients) {
+            if (client == null) continue;
             System.out.println("Client " + client.getNom());
             solde += bilanClient(client);
         }
