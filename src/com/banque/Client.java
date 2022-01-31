@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class Client {
 
-    private String nom;
+    private final String nom;
     private Compte[] comptes = new Compte[0];
     private int nbComptes = 0;
 
@@ -40,17 +40,22 @@ public class Client {
      */
     public int ajouterCompte() {
         if (this.nbComptes == 100) {
-            System.out.println("Désolé, chaque cliet est limité à 100 comptes, création d'un nouveau compte impossible");
+            System.out.println("Désolé, chaque cliet est limité à 100 comptes." +
+                    "Création d'un nouveau compte impossible");
             return 0;
         }
-        this.comptes = Arrays. copyOf(comptes, nbComptes+1);
-        this.comptes[nbComptes] = Banque.attribuerNouveauCompte();
         this.nbComptes++;
+        this.comptes = Arrays. copyOf(comptes, nbComptes);
+        this.comptes[nbComptes-1] = Banque.attribuerNouveauCompte();
         return this.comptes[nbComptes-1].numero;
     }
 
     public Compte[] getComptes() {
         return this.comptes;
+    }
+
+    public Compte getComptePrincipal() {
+        return this.comptes[0];
     }
 
     public Compte rechercherCompte(int numeroDeCompte) {
