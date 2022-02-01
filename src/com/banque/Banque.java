@@ -19,13 +19,14 @@ public class Banque {
         Client client = new Client(nom);
         this.clients = Arrays.copyOf(this.clients, this.clients.length + 1);
         this.clients[this.clients.length-1] = client;
-        System.out.println("Bienvenue à " + client.getNom() + ", un nouveau compte a été créé avec le numéro " + client.getComptePrincipal().numero);
+        System.out.println("Bienvenue à " + client.getNom() + ", un nouveau compte a été créé avec le numéro " + client.getCompteCourant().numero);
     }
 
     public static Compte attribuerNouveauCompte() {
 
         Compte compte = new Compte();
         compte.numero = ++dernierNumeroCompte;
+        compte.decouvertAutorise = 100f;
         return compte;
     }
 
@@ -35,8 +36,7 @@ public class Banque {
         Compte[] comptes = client.getComptes();
         System.out.println("Bilan du compte de " + client.getNom());
         for (Compte compte: comptes) {
-            System.out.println("Compte n° " + compte.numero);
-            System.out.println("    Solde : " + compte.getSolde() + " €");
+            compte.afficherSolde();
             solde += compte.getSolde();
         }
         System.out.println("Total : " + solde + " €");
@@ -61,5 +61,14 @@ public class Banque {
             if (client != null && client.getNom().equals(nom)) return client;
         }
         return new Client("");
+    }
+
+    public void renflouer() {
+
+        for (Client client : this.clients) {
+            if (client == null) continue;
+            System.out.println(" Renflouement pour le client " + client.getNom());
+            client.renflouer();
+        }
     }
 }

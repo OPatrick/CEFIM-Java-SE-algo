@@ -19,16 +19,15 @@ public class MaBanqueInterractive {
 
         MaBanqueInterractive banqueInteractive = new MaBanqueInterractive();
         banqueInteractive.banque = new Banque();
-//        try {
+        try {
             boolean shallWeContinue = true;
             while (shallWeContinue) {
                 shallWeContinue = banqueInteractive.interaction();
             }
-//        }  catch(RuntimeException e) {
-//            System.out.println("Ouch... problème... Bye...");
+        }  catch(RuntimeException e) {
+            System.out.println("Ouch... problème... Bye...");
 //            System.out.println(e);
-//        }
-
+        }
     }
 
     private boolean interaction() {
@@ -37,7 +36,8 @@ public class MaBanqueInterractive {
                 "\nQuelle opération voulez-vous effectuer ?\n" +
                 "    1) Ajouter un client\n" +
                 "    2) Effectuer une opération sur un client\n" +
-                "    3) Afficher un bilan général");
+                "    3) Afficher un bilan général\n" +
+                "    4) Renflouer les comptes");
         int choix;
         try {
             choix = scan.nextInt();
@@ -49,6 +49,7 @@ public class MaBanqueInterractive {
             case 1 -> interactionAjoutClient();
             case 2 -> interactionOperationClient();
             case 3 -> interactionBilanGeneral();
+            case 4 -> interactionRenflouer();
             default ->System.out.println("Nous n'avons pas compris votre réponse");
         }
         return true;
@@ -81,7 +82,8 @@ public class MaBanqueInterractive {
                     1) Afficher un bilan
                     2) Faire un retrait
                     3) Faire un dépôt
-                    4) Faire un virement""");
+                    4) Faire un virement
+                    5) Ajouter un compte""");
 
         int choix;
         try {
@@ -95,6 +97,7 @@ public class MaBanqueInterractive {
             case 2 -> interactionOperationRetrait();
             case 3 -> interactionOperationDepot();
             case 4 -> interactionVirement();
+            case 5 -> interactionAjouterCompte();
             default ->System.out.println("Nous n'avons pas compris votre réponse");
         }
     }
@@ -111,6 +114,7 @@ public class MaBanqueInterractive {
         Compte compte = this.client.rechercherCompte(numero);
         if (compte.numero == 0) {
             System.out.println("Désolé, le compte n° " + numero + " n'a pas été trouvé pour le client " +  this.client.getNom());
+            return;
         }
         System.out.println("Compte n° " + numero + " trouvé. De combien se montera le retrait ? (max " + compte.getSolde() + " €)");
         int montant = scan.nextInt();
@@ -119,11 +123,12 @@ public class MaBanqueInterractive {
 
     private void interactionOperationDepot() {
         System.out.println("Vous souhaitez effectuer un dépôt  pour le client " + this.client.getNom());
-        System.out.println("A partir de quel numéro de compte ?");
+        System.out.println("Sur quel numéro de compte ?");
         int numero = scan.nextInt();
         Compte compte = this.client.rechercherCompte(numero);
         if (compte.numero == 0) {
             System.out.println("Désolé, le compte n° " + numero + " n'a pas été trouvé pour le client " +  this.client.getNom());
+            return;
         }
         System.out.println("Compte n° " + numero + " trouvé. De combien se montera le dépôt ?");
         int montant = scan.nextInt();
@@ -131,10 +136,46 @@ public class MaBanqueInterractive {
     }
 
     private void interactionVirement() {
-        System.out.println("interactionVirement");
+
+        this.client.afficherSolde();
+        if (client.nbComptes < 2) {
+            System.out.println("Désolé, le client n° " + client.getNom() + " ne possède pas de comptes");
+            return;
+        }
+        System.out.println("Vous souhaitez faire un virement de quel compte à quel compte ?");
+
+        int numeroFrom = scan.nextInt();
+        int numeroTo = scan.nextInt();
+
+        Compte compteFrom = this.client.rechercherCompte(numeroFrom);
+        if (compteFrom.numero == 0) {
+            System.out.println("Désolé, le compte n° " + numeroFrom + " n'a pas été trouvé pour le client " +  this.client.getNom());
+            return;
+        }
+        Compte compteTo = this.client.rechercherCompte(numeroTo);
+        if (compteTo.numero == 0) {
+            System.out.println("Désolé, le compte n° " + numeroTo + " n'a pas été trouvé pour le client " +  this.client.getNom());
+            return;
+        }
+        System.out.println("Vous avez demandé un virement du compte n° " + compteFrom.numero + " vers le compte n° " + compteTo.numero + ". De combien ?");
+        float montant = scan.nextFloat();
+        compteFrom.virer(montant, compteTo);
+    }
+
+    private void  interactionAjouterCompte() {
+        int numeroCompte = client.ajouterCompte();
+        System.out.println("Le compte n° " + numeroCompte + " a été attribué à " + client.getNom());
     }
 
     private void interactionBilanGeneral() {
+        this.banque.afficherBilan();
+    }
+
+    private void interactionRenflouer() {
+        System.out.println("Vous avez choisi d'effectuer une opération de renflouement de vos comptes clients. C'est parti !\nAVANT");
+        this.banque.afficherBilan();
+        this.banque.renflouer();
+        System.out.println("APRES");
         this.banque.afficherBilan();
     }
 }

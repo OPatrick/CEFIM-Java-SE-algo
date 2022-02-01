@@ -12,7 +12,7 @@ public class Client {
 
     private final String nom;
     private Compte[] comptes = new Compte[0];
-    private int nbComptes = 0;
+    public int nbComptes = 0;
 
     public Client(String nomDuClient) {
         this.nom = nomDuClient;
@@ -32,7 +32,13 @@ public class Client {
 
     public void afficherSolde() {
 
-        System.out.println("Le solde du client " + this.nom + " est de " + this.getSolde() + " €");
+        System.out.println("Le client n° " + this.nom +" possède les comptes suivants :");
+        float solde = 0;
+        for (Compte compte: this.comptes) {
+            solde += compte.getSolde();
+            compte.afficherSolde();
+        }
+        System.out.println("Le solde du client " + this.nom + " est de " + solde + " €");
     }
 
     /**
@@ -54,15 +60,42 @@ public class Client {
         return this.comptes;
     }
 
-    public Compte getComptePrincipal() {
+    public Compte getCompteCourant() {
         return this.comptes[0];
     }
 
     public Compte rechercherCompte(int numeroDeCompte) {
+
         for (Compte compte: this.comptes)
            if (compte.numero == numeroDeCompte)
                 return compte;
         return new Compte();
     }
 
+    public void renflouer() {
+
+        if (this.getCompteCourant() == null) {
+            System.out.println("Le client " + this.nom + " n'a pas de compte principal !");
+            return;
+        }
+        Compte cp = this.getCompteCourant();
+        if (cp.getSolde() >= 0) return;
+
+        float missing = - cp.getSolde();
+
+        // First, look for total "renflouement" from one account
+        for (Compte compte: this.comptes) {
+            if (! cp.equals(compte) && (compte.getSolde() >= missing)) {
+                compte.virer(missing, cp);
+                return;
+            }
+        }
+
+        // Then, look for partial "renflouements" from several accounts
+        for (Compte compte: this.comptes) {
+            if (cp.getSolde() >= 0) return;
+            if (! cp.equals(compte) && (compte.getSolde() >= 0))
+                    compte.virer(compte.getSolde(), cp);
+        }
+    }
 }
