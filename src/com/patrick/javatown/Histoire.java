@@ -79,5 +79,11 @@ public class Histoire {
         sherif.emprisonne(brigand);
         System.out.println();
 
+        Cowboy clint = new Sherif("Clint");
+        clint.presentation();   // Sherif.presentation / Cowboy.presentation / Humain.presentation / (Sherif.quelEstTonNOM + Humain.quelEstTaBoissonFavorite)
+        // Un cowboy ne peut pas coffrer de brigand en étant manipulé comme cowbow, caster
+        ((Sherif) clint).emprisonne(brigand);
+        System.out.println();
+
     }
 }
