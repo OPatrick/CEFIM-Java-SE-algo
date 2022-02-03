@@ -28,18 +28,18 @@ public class Brigand extends Humain {
     @Override
     public void presentation() {
         super.presentation();
-        System.out.println("J'ai l'air " + this.look + " et j'ai déjà kidnappé " + getNbreDamesEnleves() + " !");
-        System.out.println("Ma tête est mise à prix " + getMiseAPrix() + "$ !");
+        parler("J'ai l'air " + this.look + " et j'ai déjà kidnappé " + getNbreDamesEnleves() + " dames !");
+        parler("Ma tête est mise à prix " + getMiseAPrix() + "$ !");
     }
 
     public void kidnappe(Dame dame) {
         dame.seFaitKidnapper();
-        this.parler("Ah ah ! " + dame.quelEstTonNom() + ", tu es mienne désormais");
+        parler("Ah ah ! " + dame.quelEstTonNom() + ", tu es mienne désormais");
         this.nbreDamesEnleves++;
     }
 
     public void estCapture(Cowboy cowboy) {
-        this.parler("Damned, je suis fait ! " + cowboy.quelEstTonNom() + ", tu m’as eu !");
+        parler("Damned, je suis fait ! " + cowboy.quelEstTonNom() + ", tu m’as eu !");
         this.etat = PRISON;
     }
 

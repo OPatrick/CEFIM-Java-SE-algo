@@ -24,11 +24,11 @@ public class Humain {
     }
 
     public void presentation() {
-        System.out.println("Bonjour, je suis " + this.quelEstTonNom() + " et j'aime boire du     " + this.boissonFavorite);
+        parler("Bonjour, je suis " + this.quelEstTonNom() + " et j'aime boire du " + this.quelEstTaBoissonFavorite());
     }
 
     public void boire() {
-        System.out.println("Ah ! un bon verre de " + this.boissonFavorite + " ! GLOUPS !");
+        parler("Ah ! un bon verre de " + quelEstTaBoissonFavorite() + " ! GLOUPS !");
     }
 
     public String quelEstTonNom() {

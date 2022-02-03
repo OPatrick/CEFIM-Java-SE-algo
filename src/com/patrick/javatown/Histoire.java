@@ -40,6 +40,7 @@ public class Histoire {
         System.out.println("Nombre de dames enlevées après enlèvement : " + brigand.getNbreDamesEnleves());
         System.out.println();
 
+        /* test classe Cowboy */
         Cowboy cowboy = new Cowboy("Super CowBoy");
         cowboy.presentation();
         cowboy.boire();
@@ -58,5 +59,15 @@ public class Histoire {
         System.out.println("Brigand état : " + brigand.getEtat());
         brigand.estCapture(cowboy);
         System.out.println("Brigand état : " + brigand.getEtat());
+        System.out.println();
+
+        /* test classe Brigand */
+        Barman barman = new Barman("Mister Cocktail");
+        barman.presentation();
+        barman.parler("Helllo toi");
+        barman.boire();
+        barman.servir(h);
+        System.out.println();
+
     }
 }
