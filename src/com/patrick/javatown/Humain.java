@@ -38,4 +38,9 @@ public class Humain {
     public String quelEstTaBoissonFavorite() {
         return this.boissonFavorite;
     }
+
+    public void commenter(String message) {
+        System.out.println("/* " + message + " */");
+    }
+
 }

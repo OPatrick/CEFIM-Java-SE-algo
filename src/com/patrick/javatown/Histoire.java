@@ -69,5 +69,15 @@ public class Histoire {
         barman.servir(h);
         System.out.println();
 
+        /* test classe Shérif */
+        Sherif sherif = new Sherif("Fais-moi-Peur");
+        sherif.presentation();
+        sherif.parler("Helllo toi");
+        sherif.boire();
+        System.out.println("Nom : " + sherif.quelEstTonNom());
+        sherif.rechercherBrigand(brigand);
+        sherif.emprisonne(brigand);
+        System.out.println();
+
     }
 }
