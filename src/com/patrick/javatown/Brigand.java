@@ -1,0 +1,49 @@
+package com.patrick.javatown;
+
+/**
+ * (c) Patrick Brouillé
+ * User: Patrick
+ * Date: 03/02/2022
+ * Time: 12:21
+ */
+public class Brigand extends Humain {
+
+    public final String MECHANT = "méchant";
+    private String look = MECHANT;
+
+    private int nbreDamesEnleves;
+    private int recompense = 100;
+    private String etat = LIBRE;
+
+    public Brigand(String nom) {
+        super(nom);
+    }
+
+
+    public void kidnappe(Dame dame) {
+        dame.seFaitKidnapper();
+        this.parler("Ah ah ! " + dame.quelEstTonNom() + ", tu es mienne désormais");
+        this.nbreDamesEnleves++;
+    }
+
+    public void estCapture(Cowboy cowboy) {
+        this.parler("Damned, je suis fait ! " + cowboy.quelEstTonNom() + ", tu m’as eu !");
+        this.etat = PRISON;
+    }
+
+    public String getEtat() {
+        return this.etat;
+    }
+
+    public int getMiseAPrix() {
+        return this.recompense;
+    }
+
+    public int getNbreDamesEnleves() {
+        return this.nbreDamesEnleves;
+    }
+
+    public String getLook() {
+        return this.look;
+    }
+}
