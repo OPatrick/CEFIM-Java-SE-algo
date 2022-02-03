@@ -17,8 +17,20 @@ public class Brigand extends Humain {
 
     public Brigand(String nom) {
         super(nom);
+        this.boissonFavorite = "tord-boyaux";
     }
 
+    @Override
+    public String quelEstTonNom() {
+        return super.quelEstTonNom() + " le " + this.look;
+    }
+
+    @Override
+    public void presentation() {
+        super.presentation();
+        System.out.println("J'ai l'air " + this.look + " et j'ai déjà kidnappé " + getNbreDamesEnleves() + " !");
+        System.out.println("Ma tête est mise à prix " + getMiseAPrix() + "$ !");
+    }
 
     public void kidnappe(Dame dame) {
         dame.seFaitKidnapper();

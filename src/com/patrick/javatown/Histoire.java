@@ -12,13 +12,13 @@ public class Histoire {
 
         /* test classe mère */
         Humain h = new Humain("toto");
-        h.presente();
+        h.presentation();
         h.boire();
         System.out.println();
 
         /* test classe Dame */
         Dame dame = new Dame("Zoupette");
-        dame.presente();
+        dame.presentation();
         dame.boire();
         System.out.println("Couleur robe : " + dame.getRobe());
         dame.changerDeRobe("rouge");
@@ -30,7 +30,7 @@ public class Histoire {
 
         /* test classe Brigand */
         Brigand brigand = new Brigand("El Diablo");
-        brigand.presente();
+        brigand.presentation();
         brigand.boire();
         System.out.println("Mise à prix : " + brigand.getMiseAPrix());
         System.out.println("Brigand état : " + brigand.getEtat());
@@ -41,7 +41,7 @@ public class Histoire {
         System.out.println();
 
         Cowboy cowboy = new Cowboy("Super CowBoy");
-        cowboy.presente();
+        cowboy.presentation();
         cowboy.boire();
         cowboy.matterBrigand();
         cowboy.tirer(brigand);

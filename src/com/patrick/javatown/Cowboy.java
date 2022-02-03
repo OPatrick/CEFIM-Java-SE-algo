@@ -14,6 +14,7 @@ public class Cowboy extends Humain{
 
     public Cowboy(String nom) {
         super(nom);
+        this.boissonFavorite = "whisky";
     }
 
     public void matterBrigand() {

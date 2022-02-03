@@ -1,7 +1,5 @@
 package com.patrick.javatown;
 
-import java.util.SplittableRandom;
-
 /**
  * (c) Patrick Brouillé
  * User: Patrick
@@ -11,7 +9,7 @@ import java.util.SplittableRandom;
 public class Humain {
 
     private final String nom;
-    private final String boissonFavorite = "eau";
+    protected String boissonFavorite = "eau";
 
     public static String LIBRE = "libre";
     public static String CAPTIVE = "captive";
@@ -22,11 +20,11 @@ public class Humain {
     }
 
     public void parler(String text) {
-        System.out.println("(" + this.nom + ") « " + text + " »");
+        System.out.println("(" + this.quelEstTonNom() + ") « " + text + " »");
     }
 
-    public void presente() {
-        System.out.println("Bonjour, je suis " + this.nom + " et j'aime boire de " + this.boissonFavorite);
+    public void presentation() {
+        System.out.println("Bonjour, je suis " + this.quelEstTonNom() + " et j'aime boire du     " + this.boissonFavorite);
     }
 
     public void boire() {

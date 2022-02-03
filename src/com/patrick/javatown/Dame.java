@@ -14,6 +14,12 @@ public class Dame extends Humain{
 
     public Dame(String nom) {
         super(nom);
+        this.boissonFavorite = "lait";
+    }
+
+    @Override
+    public String quelEstTonNom() {
+        return "Miss " + super.quelEstTonNom();
     }
 
     public void hurle() {
