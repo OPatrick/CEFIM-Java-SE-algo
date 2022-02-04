@@ -104,7 +104,29 @@ public class Histoire {
         System.out.println();
 
         cowboy.arreterBrigand(ripoux);
-        System.out.println("Popularité du cowboy après arestation Ripoux : " + cowboy.getPopularite());
+        System.out.println("Ripoux état : " + ripoux.getEtat());
+        System.out.println("Popularité du cowboy après arrestation Ripoux : " + cowboy.getPopularite());
+        System.out.println();
+
+        /* test classe FemmeBrigand */
+        FemmeBrigand femmeHorsLaLoi = new FemmeBrigand("Outlaw Women");
+        femmeHorsLaLoi.presentation();
+        femmeHorsLaLoi.boire();
+        System.out.println("Mise à prix : " + femmeHorsLaLoi.getMiseAPrix());
+        System.out.println("FemmeBrigand état : " + femmeHorsLaLoi.getEtat());
+        System.out.println("FemmeBrigand :  dames enlevées avant enlèvement : " + femmeHorsLaLoi.getNbreDamesEnleves());
+        femmeHorsLaLoi.kidnappe(dame);
+        System.out.println("FemmeBrigand : dames enlevées après enlèvement : " + femmeHorsLaLoi.getNbreDamesEnleves());
+        System.out.println();
+
+        dame.seFaitKidnapper(femmeHorsLaLoi);
+        System.out.println("Dame état : " + dame.getEtat());
+        System.out.println();
+
+        sherif.arreterBrigand(femmeHorsLaLoi);
+        System.out.println("FemmeBrigand état : " + femmeHorsLaLoi.getEtat());
+        System.out.println("Popularité du shérif après arrestation femme hors la loi : " + cowboy.getPopularite());
+        System.out.println();
 
     }
 }

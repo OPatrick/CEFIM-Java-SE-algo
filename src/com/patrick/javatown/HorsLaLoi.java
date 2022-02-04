@@ -8,7 +8,7 @@ package com.patrick.javatown;
  */
 public interface HorsLaLoi {
 
-    void estEmprisonne(Cowboy c);
+    void estEmprisonne(Cowboy cowboy);
     void kidnappe(Dame dame);
     int getMiseAPrix();
     String quelEstTonNom();
