@@ -13,7 +13,6 @@ public class Brigand extends Humain implements HorsLaLoi {
 
     private int nbreDamesEnleves;
     private int recompense = 100;
-    private String etat = LIBRE;
 
     public Brigand(String nom) {
         super(nom);
@@ -42,11 +41,7 @@ public class Brigand extends Humain implements HorsLaLoi {
     @Override
     public void estEmprisonne(Cowboy cowboy) {
         parler("Damned, je suis fait ! " + cowboy.quelEstTonNom() + ", tu m’as eu !");
-        this.etat = PRISON;
-    }
-
-    public String getEtat() {
-        return this.etat;
+        this.etat = PRISONNIER;
     }
 
     @Override

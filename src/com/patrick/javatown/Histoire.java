@@ -50,10 +50,10 @@ public class Histoire {
         cowboy.tirer(brigand);
         System.out.println("Adjectif : " + cowboy.getAdjectif());
         System.out.println("Popularité avant libération de la dame : " + cowboy.getPopularite());
-        System.out.println("Cowboy état : " + dame.getEtat());
+        System.out.println("Cowboy état dame : " + dame.getEtat());
         cowboy.libererDame(dame);
         System.out.println("Popularité après  libération de la dame : " + cowboy.getPopularite());
-        System.out.println("Cowboy état : " + dame.getEtat());
+        System.out.println("Cowboy état dame : " + dame.getEtat());
 
         cowboy.libererDame(dame);
         System.out.println("Dame état : " + dame.getEtat());
@@ -63,7 +63,7 @@ public class Histoire {
         System.out.println("Brigand état : " + brigand.getEtat());
         System.out.println();
 
-        /* test classe Brigand */
+        /* test classe barman */
         Barman barman = new Barman("Mister Cocktail");
         barman.presentation();
         barman.parler("Helllo toi");
@@ -87,6 +87,24 @@ public class Histoire {
         ((Sherif) clint).emprisonne(brigand);
         System.out.println("Nombre brigands coffrés : " + ((Sherif) clint).getNbreHorsLaLoiCoffres());
         System.out.println();
+
+        /* test classe Ripoux */
+        Ripoux ripoux = new Ripoux("Max Ripoux");
+        ripoux.presentation();
+        ripoux.boire();
+        System.out.println("Mise à prix : " + ripoux.getMiseAPrix());
+        System.out.println("Ripoux état : " + ripoux.getEtat());
+        System.out.println("Ripoux :  dames enlevées avant enlèvement : " + ripoux.getNbreDamesEnleves());
+        ripoux.kidnappe(dame);
+        System.out.println("Ripoux : dames enlevées après enlèvement : " + ripoux.getNbreDamesEnleves());
+        System.out.println();
+
+        dame.seFaitKidnapper(ripoux);
+        System.out.println("Dame état : " + dame.getEtat());
+        System.out.println();
+
+        cowboy.arreterBrigand(ripoux);
+        System.out.println("Popularité du cowboy après arestation Ripoux : " + cowboy.getPopularite());
 
     }
 }

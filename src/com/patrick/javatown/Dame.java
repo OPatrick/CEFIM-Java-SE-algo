@@ -10,8 +10,6 @@ public class Dame extends Humain{
 
     private String couleurRobe = "noire";
 
-    private String etat = LIBRE;
-
     public Dame(String nom) {
         super(nom);
         this.boissonFavorite = "lait";

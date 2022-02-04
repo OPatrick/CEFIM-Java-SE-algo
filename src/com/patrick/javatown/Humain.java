@@ -13,7 +13,9 @@ public class Humain {
 
     public static String LIBRE = "libre";
     public static String CAPTIVE = "captive";
-    public static String PRISON = "prisonnier";
+    public static String PRISONNIER = "prisonnier";
+
+    protected String etat = LIBRE;
 
     public Humain(String nom) {
         this.nom = nom;
@@ -41,6 +43,10 @@ public class Humain {
 
     public void commenter(String message) {
         System.out.println("/* " + message + " */");
+    }
+
+    public String getEtat() {
+        return this.etat;
     }
 
 }
