@@ -6,7 +6,7 @@ package com.patrick.javatown;
  * Date: 03/02/2022
  * Time: 12:21
  */
-public class Brigand extends Humain {
+public class Brigand extends Humain implements HorsLaLoi {
 
     public final String MECHANT = "méchant";
     private String look = MECHANT;
@@ -32,13 +32,15 @@ public class Brigand extends Humain {
         parler("Ma tête est mise à prix " + getMiseAPrix() + "$ !");
     }
 
+    @Override
     public void kidnappe(Dame dame) {
         dame.seFaitKidnapper();
         parler("Ah ah ! " + dame.quelEstTonNom() + ", tu es mienne désormais");
         this.nbreDamesEnleves++;
     }
 
-    public void estCapture(Cowboy cowboy) {
+    @Override
+    public void estEmprisonne(Cowboy cowboy) {
         parler("Damned, je suis fait ! " + cowboy.quelEstTonNom() + ", tu m’as eu !");
         this.etat = PRISON;
     }
@@ -47,6 +49,7 @@ public class Brigand extends Humain {
         return this.etat;
     }
 
+    @Override
     public int getMiseAPrix() {
         return this.recompense;
     }

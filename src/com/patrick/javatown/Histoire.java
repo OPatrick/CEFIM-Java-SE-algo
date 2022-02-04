@@ -57,7 +57,7 @@ public class Histoire {
         System.out.println("Dame état : " + dame.getEtat());
 
         System.out.println("Brigand état : " + brigand.getEtat());
-        brigand.estCapture(cowboy);
+        brigand.estEmprisonne(cowboy);
         System.out.println("Brigand état : " + brigand.getEtat());
         System.out.println();
 
@@ -75,7 +75,7 @@ public class Histoire {
         sherif.parler("Helllo toi");
         sherif.boire();
         System.out.println("Nom : " + sherif.quelEstTonNom());
-        sherif.rechercherBrigand(brigand);
+        sherif.rechercherHorsLaLoi(brigand);
         sherif.emprisonne(brigand);
         System.out.println();
 
@@ -83,6 +83,7 @@ public class Histoire {
         clint.presentation();   // Sherif.presentation / Cowboy.presentation / Humain.presentation / (Sherif.quelEstTonNOM + Humain.quelEstTaBoissonFavorite)
         // Un cowboy ne peut pas coffrer de brigand en étant manipulé comme cowbow, caster
         ((Sherif) clint).emprisonne(brigand);
+        System.out.println("Nombre brigands coffrés : " + ((Sherif) clint).getNbreHorsLaLoiCoffres());
         System.out.println();
 
     }

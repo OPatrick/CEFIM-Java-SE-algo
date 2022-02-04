@@ -27,7 +27,7 @@ public class Cowboy extends Humain{
         this.popularite++;
     }
 
-    public void tirer(Brigand brigand) {
+    public void tirer(HorsLaLoi brigand) {
         commenter("Le " + this.adjectif + " " + this.quelEstTonNom() + " tire sur " + brigand.quelEstTonNom() + ". PAN !");
     }
 

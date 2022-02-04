@@ -8,7 +8,7 @@ package com.patrick.javatown;
  */
 public class Sherif extends Cowboy{
 
-    private int nbreBrigandsCoffres;
+    private int nbreHorsLaLoiCoffres;
 
     public Sherif(String nom) {
         super(nom);
@@ -17,7 +17,7 @@ public class Sherif extends Cowboy{
     @Override
     public void presentation() {
         super.presentation();
-        parler("J'ai coffré " + getNbreBrigandsCoffres() + " brigands");
+        parler("J'ai coffré " + getNbreHorsLaLoiCoffres() + " hors la loi");
     }
 
     @Override
@@ -25,17 +25,18 @@ public class Sherif extends Cowboy{
         return "Shérif " + super.quelEstTonNom();
     }
 
-    public void emprisonne(Brigand brigand) {
+    public void emprisonne(HorsLaLoi brigand) {
 //        if (brigand instanceof Sherif) return;    TODO tous les sherifs sont honnêtes
         parler("Au nom de la loi, je vous arrête");
-        brigand.estCapture(this);
+        brigand.estEmprisonne(this);
+        this.nbreHorsLaLoiCoffres++;
     }
 
-    public void rechercherBrigand(Brigand brigand) {
+    public void rechercherHorsLaLoi(HorsLaLoi brigand) {
         commenter("OYEZ OYEZ BRAVE GENS !! " + brigand.getMiseAPrix() + " $ a qui arrêtera " + brigand.quelEstTonNom() + ", mort ou vif !!");
     }
 
-    public int getNbreBrigandsCoffres() {
-        return this.nbreBrigandsCoffres;
+    public int getNbreHorsLaLoiCoffres() {
+        return this.nbreHorsLaLoiCoffres;
     }
 }
