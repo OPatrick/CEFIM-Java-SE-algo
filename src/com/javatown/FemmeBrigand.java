@@ -1,30 +1,30 @@
-package com.patrick.javatown;
+package com.javatown;
 
 /**
  * (c) Patrick Brouillé
  * User: Patrick
  * Date: 04/02/2022
- * Time: 09:48
+ * Time: 10:08
  */
-public class Ripoux extends Sherif implements HorsLaLoi {
+public class FemmeBrigand extends Dame implements HorsLaLoi {
 
     private int nbreDamesEnleves;
-    private int recompense = 500;
+    private int recompense = 200;
 
-    public Ripoux(String nom) {
+    public FemmeBrigand(String nom) {
         super(nom);
     }
 
     @Override
     public void estEmprisonne(Cowboy cowboy) {
-        parler("Damned, je suis fait ! " + cowboy.quelEstTonNom() + ", tu m’as eu !");
+        parler("Damned, je suis faite ! " + cowboy.quelEstTonNom() + ", tu m’as eue !");
         this.etat = PRISONNIER;
     }
 
     @Override
     public void kidnappe(Dame dame) {
         dame.seFaitKidnapper(this);
-        parler("Ah ah ! " + dame.quelEstTonNom() + ", tu es mienne désormais");
+        parler("Ah ah ! " + dame.quelEstTonNom() + ", tu es ma prisonnière désormais");
         this.nbreDamesEnleves++;
     }
 

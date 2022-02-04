@@ -1,4 +1,4 @@
-package com.patrick.javatown;
+package com.javatown;
 
 /**
  * (c) Patrick Brouillé
