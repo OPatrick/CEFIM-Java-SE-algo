@@ -23,13 +23,14 @@ public class Cowboy extends Humain implements VisagePale{
     }
 
     public void libererDame(Dame dame) {
-        this.parler("Une dame avec une si jolie robe " + dame.getRobe() + " ne peut rester prisonnière");
+        this.parler("Une dame avec une si jolie robe " + dame.getRobe() + " ne peut rester prisonnière. Je te libère...");
         dame.seFaitLiberer(this);
         this.popularite++;
+        this.parler("Tu es la " +  getPopularite() + " ème prisonnière que je libère !");
     }
 
     public void tirer(HorsLaLoi brigand) {
-        commenter("Le " + this.adjectif + " " + this.quelEstTonNom() + " tire sur " + brigand.quelEstTonNom() + ". PAN !");
+        commenter("Le " + getAdjectif() + " " + this.quelEstTonNom() + " tire sur " + brigand.quelEstTonNom() + ". PAN !");
     }
 
     public int getPopularite() {
