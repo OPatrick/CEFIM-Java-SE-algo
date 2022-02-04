@@ -34,7 +34,7 @@ public class Brigand extends Humain implements HorsLaLoi {
 
     @Override
     public void kidnappe(Dame dame) {
-        dame.seFaitKidnapper();
+        dame.seFaitKidnapper(this);
         parler("Ah ah ! " + dame.quelEstTonNom() + ", tu es mienne désormais");
         this.nbreDamesEnleves++;
     }

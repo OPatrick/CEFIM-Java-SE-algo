@@ -22,12 +22,12 @@ public class Dame extends Humain{
         return "Miss " + super.quelEstTonNom();
     }
 
-    public void hurle() {
-        this.parler("Au secours !");
+    public void hurle(HorsLaLoi brigand) {
+        this.parler("Au secours ! " + brigand.quelEstTonNom() + " me veut du mal !");
     }
 
-    public void seFaitKidnapper() {
-        this.hurle();
+    public void seFaitKidnapper(HorsLaLoi brigand) {
+        this.hurle(brigand);
         this.etat = CAPTIVE;
     }
 

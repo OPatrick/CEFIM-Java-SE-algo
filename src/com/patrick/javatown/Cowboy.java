@@ -17,8 +17,9 @@ public class Cowboy extends Humain{
         this.boissonFavorite = "whisky";
     }
 
-    public void matterBrigand() {
+    public void arreterBrigand(HorsLaLoi brigand) {
         this.parler("Prend ça, rascal !");
+        brigand.estEmprisonne(this);
     }
 
     public void libererDame(Dame dame) {

@@ -22,9 +22,6 @@ public class Histoire {
         dame.boire();
         System.out.println("Couleur robe : " + dame.getRobe());
         dame.changerDeRobe("rouge");
-        dame.hurle();
-        System.out.println("Dame état : " + dame.getEtat());
-        dame.seFaitKidnapper();
         System.out.println("Dame état : " + dame.getEtat());
         System.out.println();
 
@@ -40,11 +37,16 @@ public class Histoire {
         System.out.println("Nombre de dames enlevées après enlèvement : " + brigand.getNbreDamesEnleves());
         System.out.println();
 
+        dame.hurle(brigand);
+        dame.seFaitKidnapper(brigand);
+        System.out.println("Dame état : " + dame.getEtat());
+        System.out.println();
+
         /* test classe Cowboy */
         Cowboy cowboy = new Cowboy("Super CowBoy");
         cowboy.presentation();
         cowboy.boire();
-        cowboy.matterBrigand();
+        cowboy.arreterBrigand(brigand);
         cowboy.tirer(brigand);
         System.out.println("Adjectif : " + cowboy.getAdjectif());
         System.out.println("Popularité avant libération de la dame : " + cowboy.getPopularite());
