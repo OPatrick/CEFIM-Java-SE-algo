@@ -6,7 +6,7 @@ package com.patrick.javatown;
  * Date: 03/02/2022
  * Time: 12:21
  */
-public class Brigand extends Humain implements HorsLaLoi {
+public class Brigand extends Humain implements HorsLaLoi, VisagePale {
 
     public final String MECHANT = "méchant";
     private String look = MECHANT;
@@ -55,5 +55,10 @@ public class Brigand extends Humain implements HorsLaLoi {
 
     public String getLook() {
         return this.look;
+    }
+
+    @Override
+    public void scalp() {
+        parler("Aïe ma tête !");
     }
 }

@@ -6,7 +6,7 @@ package com.patrick.javatown;
  * Date: 03/02/2022
  * Time: 12:22
  */
-public class Cowboy extends Humain{
+public class Cowboy extends Humain implements VisagePale{
 
     private  int popularite;
     public static String VAILLANT = "vaillant";
@@ -39,4 +39,10 @@ public class Cowboy extends Humain{
     public String getAdjectif() {
         return this.adjectif;
     }
+
+    @Override
+    public void scalp() {
+        parler("Touche pas à mon chapeau ! Aïe ma tête !");
+    }
+
 }

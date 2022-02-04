@@ -6,7 +6,7 @@ package com.patrick.javatown;
  * Date: 03/02/2022
  * Time: 12:23
  */
-public class Dame extends Humain{
+public class Dame extends Humain implements VisagePale {
 
     private String couleurRobe = "noire";
 
@@ -47,4 +47,10 @@ public class Dame extends Humain{
         this.couleurRobe = couleur;
         this.parler("Regardez ma nouvelle robe " + this.couleurRobe);
     }
+
+    @Override
+    public void scalp() {
+        parler("Pas mes cheveux ! Pitié !");
+    }
+
 }

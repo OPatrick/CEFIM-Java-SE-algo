@@ -128,5 +128,17 @@ public class Histoire {
         System.out.println("Popularité du shérif après arrestation femme hors la loi : " + cowboy.getPopularite());
         System.out.println();
 
+        /* test classe Indien */
+        Indien indien = new Indien("Homme-Qui-Subit-Injustice-Des-Blancs");
+        indien.presentation();
+        indien.parler("Helllo toi");
+        indien.boire();
+        System.out.println("Nom : " + indien.quelEstTonNom());
+        indien.scalper(brigand);
+        System.out.println("Nombre de plumes : " +  indien.getNombrePlumes());
+        indien.scalper(dame);
+        System.out.println("Nombre de plumes : " +  indien.getNombrePlumes());
+        System.out.println();
+
     }
 }
