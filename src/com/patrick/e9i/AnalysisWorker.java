@@ -1,8 +1,6 @@
 package com.patrick.e9i;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * (c) Patrick Brouillé
@@ -16,40 +14,27 @@ public class AnalysisWorker implements IWorker {
 
     @Override
     public String getTitle() {
-        return "Analyse métier";
+        return "Analyse métier    ";
     }
 
     public void exec(Solutions solutions) {
 
         this.solutions = solutions;
-//        float result = 0f;
 
         for (int i=1; i<10; i++) {
-//            result += 13f * (float) i;
             for (int j=1; j<10; j++) {
                 if (j == i) continue;
-//                result /= (float) j;
                 for (int k = 1; k < 10; k++) {
                     if (k == j || k == i) continue;
-//                    float x3 = (float) k;
                     for (int l = 1; l < 10; l++) {
                         if (l == k || l == j || l == i) continue;
-//                        float x4 = (float) l;
-//                        float t4 = x3 * x4;
                         for (int m = 1; m < 10; m++) {
                             if (m == l || m == k || m == j || m == i) continue;
-//                            float x5 = (float) m;
-//                            float t5 = t4 / x5;
 
                             this.solutions.addIterationTic();
 
-//                            result += t5;
-//                            System.out.println("13*" + i + "/" + j + " + " + k + "*" + l + "/" + m + " = " + result);
                             float result = 13 * i / (float) j + k * l / (float) m -21;
-
                             if (Math.round(result) == result) {
-
-//                                result -= 21; // -11 - 10;
 
                                 int[] sorted = new int[]{i, j, k, l, m};
                                 int[] unSorted= new int[4];
@@ -61,7 +46,7 @@ public class AnalysisWorker implements IWorker {
                                     }
                                 }
 
-                                magicalSortOptimzed(sorted, unSorted, (int) result, 0);
+                                magicalSortOptimzed(sorted, unSorted, 0);
                             }
                         }
                     }
@@ -70,7 +55,7 @@ public class AnalysisWorker implements IWorker {
         }
     }
 
-    public void magicalSortOptimzed(int[] sorted, int[] unsorted, int tempResult, int depth) {
+    public void magicalSortOptimzed(int[] sorted, int[] unsorted, int depth) {
 
         int[] sortedBigger = Arrays.copyOf(sorted, sorted.length +1);
         int[] shortedUnsorted;
@@ -98,8 +83,8 @@ public class AnalysisWorker implements IWorker {
                 shortedUnsorted[key-1] = unsorted[key];
             }
 
-            // Call recursive
-            magicalSortOptimzed(sortedBigger, shortedUnsorted, tempResult, depth);
+            // Recursive Call
+            magicalSortOptimzed(sortedBigger, shortedUnsorted, depth);
         }
     }
 

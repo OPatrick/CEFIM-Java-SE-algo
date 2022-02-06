@@ -16,7 +16,7 @@ public class RecursiveWorker implements IWorker {
 
     @Override
     public String getTitle() {
-        return "Récursivité";
+        return "Récursivité       ";
     }
 
     public void exec(Solutions solutions) {
@@ -50,7 +50,7 @@ public class RecursiveWorker implements IWorker {
             for(int j=0; j<i; j++) {
                 shortedUnsorted[j] = unsorted[j];
             }
-            // Shift ième element from unsorted
+            // Shift nth element from unsorted
             sortedBigger[sorted.length] = unsorted[i];
             //  Copy from index excluded
             for(int j=i+1; j<unsorted.length; j++) {

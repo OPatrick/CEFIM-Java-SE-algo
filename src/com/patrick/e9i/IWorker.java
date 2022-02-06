@@ -8,6 +8,7 @@ package com.patrick.e9i;
  */
 public interface IWorker {
 
-    public String getTitle();
-    public void exec(Solutions solutions);
+    String getTitle();
+    void exec(Solutions solutions);
+
 }

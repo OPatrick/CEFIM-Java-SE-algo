@@ -21,7 +21,7 @@ public class AlgoTester {
             worker.exec(solutions);
 
             endTime = System.nanoTime();
-            duration += (endTime - startTime) / 1000.0;
+            duration += (endTime - startTime) / 1000000.0;
         }
         duration /= numberOfTrials;
         solutions.setDuration(duration);

@@ -76,19 +76,20 @@ public final class Solutions {
         if (liste.size() > 0) {
             str.append(liste.size());
             str.append(" solutions | ");
-            str.append("Première solution trouvée : ");
+            str.append("1ère trouvée : ");
             str.append(Arrays.toString(liste.get(0)));
         } else {
             str.append("Aucune solution trouvée");
         }
-        str.append(" | Nombre d'itérations : ");
-        str.append(this.getIterationCount());
-        str.append(" | Nombre de récursivité : ");
-        str.append(this.getRecursiveCount());
-        str.append(" | Profondeur de récursivité : ");
-        str.append(this.getDepth());
+        str.append(" | Itérations : ");
+        str.append(String.format("%" + (-6) + "s", this.getIterationCount()));
+        str.append(" | Récursivités : ");
+        str.append(String.format("%" + (-6) + "s", this.getRecursiveCount()));
+        str.append(" | Niveaux de récursivité : ");
+        str.append(String.format("%" + (-2) + "s", this.getDepth()));
         str.append(" | Durée : ");
-        str.append(this.getDuration());
+        str.append(Math.round(this.getDuration()));
+        str.append(" ms");
         return str.toString();
     }
 }
