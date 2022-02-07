@@ -3,6 +3,7 @@ package com.collectionexception;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * (c) Patrick Brouillé
@@ -14,6 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Question a
         List<Country> list = new ArrayList<>();
 
         Country france = new Country("France");
@@ -27,15 +29,19 @@ public class Main {
         System.out.println("La collection contient " + list.size() + " pays :");
         System.out.println();
 
+        // Question b
         try {
             displayCountryList(list);
-            list.removeAll(list);
+
+            // Question c
+            list.clear();
             if (list.isEmpty()) System.out.println("Liste vide");
             displayCountryList(list);
         } catch (ListEmptyException e) {
             System.out.println(e);
         }
 
+        // Question d
         list.add(france);
         list.add(germany);
         list.add(italia);
@@ -45,7 +51,7 @@ public class Main {
         System.out.println();
 
         try {
-
+            // Question e
             System.out.println("OrdreAlphabetix");
 //        list.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
             list.sort(Country::sort);
@@ -59,10 +65,12 @@ public class Main {
             System.out.println(e);
         }
 
+        // Exercice 1
         int a = 0;
         int b = 2;
         boolean doIt = true;
 
+        // Exercice 2
         while (doIt) {
             try {
                 System.out.println(b / a);    // ArithmeticException
@@ -77,9 +85,25 @@ public class Main {
             getAgeCap("50");
 //            getAgeCap("5");
             getAgeCap("50.5");
-        } catch (AgeCapException ace) {
-            System.out.println(ace);
+        } catch (Exception e) {
+            System.out.println(e);
         }
+
+        Scanner scan = new Scanner(System.in);
+
+        int i = 10;
+        while (i > 0) {
+            try {
+                System.out.println("Quel est l'âge du capitaine ?");
+                getAgeCap(scan.nextLine());
+            } catch (Exception e) {
+                System.out.println(e);
+            } finally {
+                i--;
+            }
+        }
+
+        scan.close();
     }
 
     private static void displayCountryList(List<Country> list) throws ListEmptyException {
@@ -92,7 +116,7 @@ public class Main {
         System.out.println();
     }
 
-    public static void getAgeCap(String age) throws AgeCapException {
+    public static void getAgeCap(String age) throws Exception {
 
         try {
             int ageAsInt = Integer.parseInt(age);
