@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 /**
  * (c) Patrick Brouillé
@@ -21,13 +21,11 @@ public class Flux {
         Flux flux = new Flux();
 
         try {
-            HashMap<Character, Integer> chars = flux.analyseFile(PATH);
+            Map<Character, Integer> chars = flux.analyseFile(PATH);
 
             // Ordered display
-            List<Character> sortedKeys = chars.keySet().stream().sorted().toList();
-            for (Character c : sortedKeys) {
-                System.out.println(c + " (unicode: " + (int) c + ") :" + chars.get(c));
-            }
+            chars.keySet().stream().sorted().forEach((c)->
+                    System.out.println(c + " (unicode: " + (int) c + ") :" + chars.get(c)));
 
         } catch (IOException e) {
             System.out.println("Le fichier [" + PATH + "] n'a pas été trouvé");
@@ -35,19 +33,17 @@ public class Flux {
 
     }
 
-    private HashMap<Character, Integer> analyseFile(String fileName) throws IOException {
+    private Map<Character, Integer> analyseFile(String fileName) throws IOException {
 
-        HashMap<Character, Integer> chars = new HashMap<>() ;
+        Map<Character, Integer> chars = new HashMap<>() ;
 
-        Reader fileReader = new FileReader(fileName);
-
-        int data = fileReader.read();
-        while(data != -1) {
-            chars.put((char) data, chars.get((char) data) == null ? 1 :  chars.get((char) data) + 1);
-            data = fileReader.read();
+        try (Reader fileReader = new FileReader(fileName)) {
+            int data = fileReader.read();
+            while (data != -1) {
+                chars.put((char) data, chars.get((char) data) == null ? 1 : chars.get((char) data) + 1);
+                data = fileReader.read();
+            }
         }
-
-        fileReader.close();
 
         return chars;
     }
