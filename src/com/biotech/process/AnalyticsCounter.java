@@ -1,48 +1,37 @@
 package com.biotech.process;
 
 import java.io.*;
+import java.util.List;
 
 public class AnalyticsCounter {
 
-    private static int headacheCount = 0;    // initialize to 0
-    private static int rashCount = 0;        // initialize to 0
-    private static int pupilCount = 0;        // initialize to 0
+    static final String path = "src\\com\\biotech\\";
+    static final String srcFileName = "symptoms.txt";
+    static final String destFileName = "result.out";
+    static final int numberOfResults = 7;
 
     public static void main(String[] args) throws Exception {
 
-        String path = "D:\\Patrick\\Documents\\Projets\\RaspberryPi\\CEFIM-Java-SE-algo\\src\\com\\biotech\\";
+        ReadSymptomDataFromFile r = new ReadSymptomDataFromFile(path + srcFileName);
+        List<String> symptomsRaw = r.getSymptoms();
+        System.out.println(symptomsRaw);
 
-        try {
-            // first get input
-            BufferedReader reader = new BufferedReader(new FileReader(path + "symptoms.txt"));
-            String line = reader.readLine();
-
-            while (line != null) {
-                System.out.println("symptom from file: " + line);
-                if (line.equals("headache")) {
-                    headacheCount++;
-                    System.out.println("number of headaches: " + headacheCount);
-                } else if (line.equals("rush")) {
-                    rashCount++;
-                } else if (line.contains("pupils")) {
-                    pupilCount++;
-                }
-                line = reader.readLine();    // get another symptom
-            }
-
-            reader.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Concernant le chemin " + path);
-            System.out.println(e.getMessage());
-        }
+        FilterSymptoms filter = new FilterSymptoms(symptomsRaw);
+//        filter.reverseSortOfSymptoms();
+        filter.orderByOccurence();
+        filter.filterTopMostRanked(numberOfResults);
+        System.out.println(filter.getResult());
 
         // next generate output
         try {
-            FileWriter writer = new FileWriter(path + "result.out");
-            writer.write("headache: " + headacheCount + "\n");
-            writer.write("rash: " + rashCount + "\n");
-            writer.write("dialated pupils: " + pupilCount + "\n");
+            FileWriter writer = new FileWriter(path + destFileName);
+            filter.getResult().forEach((key, value) -> {
+                try {
+                    writer.write(key + ": " + value + "\n");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
             writer.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
