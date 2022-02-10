@@ -3,6 +3,12 @@ package com.biotech.process;
 import java.io.*;
 import java.util.List;
 
+/**
+ * Usage: choose or comment among useful methods
+ *    - reverseSortOfSymptoms
+ *    - orderByOccurence
+ *    - filterTopMostRanked
+ */
 public class AnalyticsCounter {
 
     static final String path = "src\\com\\biotech\\";
@@ -17,9 +23,13 @@ public class AnalyticsCounter {
         System.out.println(symptomsRaw);
 
         FilterSymptoms filter = new FilterSymptoms(symptomsRaw);
+
+        // Next 3 methods can be used separately or together, in a meaningful order!
+
 //        filter.reverseSortOfSymptoms();
         filter.orderByOccurence();
         filter.filterTopMostRanked(numberOfResults);
+
         System.out.println(filter.getResult());
 
         // next generate output
