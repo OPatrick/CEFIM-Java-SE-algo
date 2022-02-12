@@ -11,9 +11,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.util.*;
 
 /**
@@ -59,7 +57,6 @@ public class Repository {
 
         String question = "";
         String explanation = "";
-        String answer = "";
         String[] answers = new String[0] ;
         List<Integer> rightAnswers = new ArrayList<>();
 
@@ -89,8 +86,7 @@ public class Repository {
                         rightAnswers.add(i);
                     }
                     // get text
-                    answer = element.getTextContent();
-                    answers[--i] = answer;
+                    answers[--i] = element.getTextContent();
                 }
             }
 

@@ -16,7 +16,7 @@ public class CertificationTrainer {
 
         controler.askNumberOfQuestions("Combien de questions ce jour ?");
         controler.display("C'est parti");
-        controler.nextQuestion("You win! Great job");
+        controler.nextQuestion("Bien joué");
         controler.displayScore("Votre score est de ");
     }
 }
