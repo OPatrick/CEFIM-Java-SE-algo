@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[Which three are advantages of the Java exception mechanism?]]></question>
+    <answers>
+        <answer id="1"><![CDATA[Provides a set of standard exceptions that covers all possible errors]]></answer>
+        <answer id="2" right="true"><![CDATA[Allows the creation of new exceptions that are customized to the particular program being created]]></answer>
+        <answer id="3"><![CDATA[Improves the program structure because exceptions must be handled in the method in which they occurre]]></answer>
+        <answer id="4" right="true"><![CDATA[Improves the program structure because the programmer can choose where to handle exceptions]]></answer>
+        <answer id="5" right="true"><![CDATA[Improves the program structure because the error handling code is separated from the normal program function]]></answer>
+    </answers>
+    <explanation><![CDATA[The right answers are 2, 4 and 5
+    1 is wrong because standard exceptions do not cover domain ones
+    3 is wrong because exceptions might be handled at caller's level or higher
+    ]]></explanation>
+</Question>

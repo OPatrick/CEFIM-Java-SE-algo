@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[]]></question>
+    <answers>
+        <answer id="1"><![CDATA[]]></answer>
+        <answer id="2"><![CDATA[]]></answer>
+        <answer id="3" right="true"><![CDATA[]]></answer>
+        <answer id="4"><![CDATA[]]></answer>
+    </answers>
+    <explanation><![CDATA[]]></explanation>
+</Question>

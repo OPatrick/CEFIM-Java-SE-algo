@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[Of the following four modifiers, choose the one that is not implicitly applied to all interface variables.]]></question>
+    <answers>
+        <answer id="1"><![CDATA[final]]></answer>
+        <answer id="2" right="true"><![CDATA[abstract]]></answer>
+        <answer id="3"><![CDATA[static]]></answer>
+        <answer id="4"><![CDATA[public]]></answer>
+    </answers>
+    <explanation><![CDATA[The right answer is 2]]></explanation>
+</Question>

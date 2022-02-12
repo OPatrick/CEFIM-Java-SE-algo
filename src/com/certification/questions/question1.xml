@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[Which of the following is a valid JavaBean method signature?]]></question>
+    <answers>
+        <answer id="1"><![CDATA[public void getArrow()]]></answer>
+        <answer id="2"><![CDATA[public void setBow()]]></answer>
+        <answer id="3" right="true"><![CDATA[public void setRange(int range)]]></answer>
+        <answer id="4"><![CDATA[public String addTarget(String target)]]></answer>
+    </answers>
+    <explanation><![CDATA[The right answer is 3.
+    1 is wrong because a getter cannot have void as return type.
+    2 is wrong because a setter must have a parameter value to set
+    4 is wrong because add is not an allowed method in JavaBean]]></explanation>
+</Question>
