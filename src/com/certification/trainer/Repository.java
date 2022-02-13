@@ -11,8 +11,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * (c) Patrick Brouillé
@@ -21,6 +25,9 @@ import java.util.*;
  * Time: 08:36
  */
 public class Repository {
+
+    private static final String path = "src/com/certification/questions";
+    private static final String template = "template.xml";
 
     File[] allQuestions;
     File[] usedQuestions;
@@ -46,6 +53,59 @@ public class Repository {
         }
     }
 
+    public void createQuestion(CertificationVO vo) throws IOException {
+
+        // Getting the template file object from directory
+        File templateFile = new File(path + File.separator + template);
+        try (Scanner scan = new Scanner(templateFile)) {
+            StringBuilder buffer = new StringBuilder();
+            while (scan.hasNextLine()) {
+                buffer.append(scan.nextLine()).append(System.lineSeparator());
+            }
+            String fileContents = buffer.toString();
+
+            // Filling question
+            fileContents = fileContents.replaceAll("\\{\\{question\\}\\}", vo.getQuestion());
+
+            // Filling explanation
+            fileContents = fileContents.replaceAll("\\{\\{explanation\\}\\}", vo.getExplanation());
+
+            // Extracting answer sub template
+            String answerTemplate = null;
+            String regex = "\\s+<answer[^s][^/]+/answer>";
+            Pattern p = Pattern.compile(regex, Pattern.MULTILINE);
+            Matcher m = p.matcher(fileContents);
+            while (m.find()) {
+                answerTemplate = m.group(0);
+            }
+            if (answerTemplate == null || answerTemplate.length() < 1) return;
+
+            // Putting answers
+            StringBuilder answersContents = new StringBuilder();
+            for (int i =0; i< vo.getAnswers().size(); i++) {
+                String answer = answerTemplate.replaceAll("\\{\\{id\\}\\}", Integer.toString(i+1));
+                answer = answer.replaceAll("\\{\\{answer\\}\\}", vo.getAnswers().get(i));
+                String rightOrWrong = "false";
+                if (vo.getRightAnswers().contains(i+1)) {
+                    rightOrWrong = "true";
+                }
+                answer = answer.replaceAll("\\{\\{rightOrWrong\\}\\}", rightOrWrong);
+                answersContents.append(answer);
+            }
+
+            // Filling answers
+            if (answersContents.length() > 0) {
+                fileContents = fileContents.replaceAll(Pattern.quote(answerTemplate), answersContents.toString());
+            }
+//            System.out.println(fileContents);
+
+            // Writing file down to disk
+            FileWriter writer = new FileWriter(path + File.separator + UUID.randomUUID() + ".xml");
+            writer.append(fileContents);
+            writer.flush();
+        }
+    }
+
     public CertificationVO getQuestion() {
 
         int index;
@@ -53,7 +113,7 @@ public class Repository {
         do {
             index = new Random().nextInt(this.allQuestions.length);
             file = this.allQuestions[index];
-        } while (file.getName().equals("template.xml"));
+        } while (file.getName().equals(template));
 
         String question = "";
         String explanation = "";
@@ -108,7 +168,7 @@ public class Repository {
 
     public void getQuestionsList() {
         //Creating a File object for directory
-        File directoryPath = new File("src/com/certification/questions");
+        File directoryPath = new File(path);
         //List of all files and directories
         allQuestions = directoryPath.listFiles();
     }
