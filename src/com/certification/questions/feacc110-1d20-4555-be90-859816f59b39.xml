@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[When writing a method that is declared not to return a value. Which two are permitted in the method body?]]></question>
+    <answers>
+        <answer id="1" right="true"><![CDATA[omission of the return statement]]></answer>
+        <answer id="2" right="false"><![CDATA[return null;]]></answer>
+        <answer id="3" right="false"><![CDATA[return void;]]></answer>
+        <answer id="4" right="true"><![CDATA[return;]]></answer>
+    </answers>
+    <explanation><![CDATA[]]></explanation>
+</Question>

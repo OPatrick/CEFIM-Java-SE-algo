@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[Restricting access to only the public methods of a class is related to which one of these concepts in Java?]]></question>
+    <answers>
+        <answer id="1" right="false"><![CDATA[Platform independence]]></answer>
+        <answer id="2" right="false"><![CDATA[Object orientation]]></answer>
+        <answer id="3" right="true"><![CDATA[Encapsulation]]></answer>
+        <answer id="4" right="false"><![CDATA[Inheritance]]></answer>
+    </answers>
+    <explanation><![CDATA[]]></explanation>
+</Question>

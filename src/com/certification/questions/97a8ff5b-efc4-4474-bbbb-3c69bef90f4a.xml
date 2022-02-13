@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[What is the value of that Number after the execution of the following code snippet?
+long number = 5 >= 5 ? 1+2 : 1*1;
+if(++number < 4)
+    thatNumber += 1;]]></question>
+    <answers>
+        <answer id="1" right="true"><![CDATA[number += 1;
+3]]></answer>
+        <answer id="2" right="false"><![CDATA[4]]></answer>
+        <answer id="3" right="false"><![CDATA[5]]></answer>
+        <answer id="4" right="false"><![CDATA[The answer cannot be determined until runtime.]]></answer>
+    </answers>
+    <explanation><![CDATA[5 >= 5 is always true, so on the first line number = 1+2 = 3
+3 incremented by one is not less tahn 4, so if condition not met and number stays at 3]]></explanation>
+</Question>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[Which usage represents a valid way of compiling java source file with the name "Main"?]]></question>
+    <answers>
+        <answer id="1" right="true"><![CDATA[javac Main.java]]></answer>
+        <answer id="2" right="false"><![CDATA[java Main.class]]></answer>
+        <answer id="3" right="false"><![CDATA[java Main.java]]></answer>
+        <answer id="4" right="false"><![CDATA[javac Main]]></answer>
+        <answer id="5" right="false"><![CDATA[java Main]]></answer>
+    </answers>
+    <explanation><![CDATA[]]></explanation>
+</Question>

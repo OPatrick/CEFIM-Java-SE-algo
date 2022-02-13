@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[Which following description is best suited for encapsulation?
+        Encapsulation ensures that classes can be designed so that:]]></question>
+    <answers>
+        <answer id="1" right="false"><![CDATA[When a method has an argument AnyType x, any subclass of AnyType can be passed to that method.]]></answer>
+        <answer id="2" right="true"><![CDATA[Only certain fields and methods of an object are accessible from other objects.]]></answer>
+        <answer id="3" right="false"><![CDATA[Classes methods are inheritable.]]></answer>
+        <answer id="4" right="false"><![CDATA[Some fields and methods declared as abstract.]]></answer>
+    </answers>
+    <explanation><![CDATA[]]></explanation>
+</Question>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[On a list of Orders objects, each with a date, a Customer and a state. In order to filter that list in various ways, which of the following in built functional interface are you going to use?]]></question>
+    <answers>
+        <answer id="1" right="false"><![CDATA[Consumer<T>]]></answer>
+        <answer id="2" right="true"><![CDATA[Predicate<T>]]></answer>
+        <answer id="3" right="false"><![CDATA[Supplier<T>]]></answer>
+        <answer id="4" right="false"><![CDATA[UnaryOperator<T>]]></answer>
+    </answers>
+    <explanation><![CDATA[]]></explanation>
+</Question>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Certification VO -->
+<Question>
+    <question><![CDATA[On a try statement with catch blocks for both Exception and IOException, then which one of the following statements is correct?]]></question>
+    <answers>
+        <answer id="1" right="false"><![CDATA[A try statement cannot be declared with these two catch block types because they are incompatible.]]></answer>
+        <answer id="2" right="false"><![CDATA[The catch block for Exception must appear before the catch block for IOException.]]></answer>
+        <answer id="3" right="true"><![CDATA[The catch block for IOException must appear before the catch block for Exception.]]></answer>
+        <answer id="4" right="false"><![CDATA[The catch blocks for these two exception types can be declared in any order.]]></answer>
+    </answers>
+    <explanation><![CDATA[]]></explanation>
+</Question>
